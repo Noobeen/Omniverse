@@ -3,3 +3,9 @@ pandasai
 streamlit
 numpy
 matplotlib
+langchain
+langchain-community
+langchain-core
+langchain-chroma
+langchain-openai
+langchain-ollama
