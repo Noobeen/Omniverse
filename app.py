@@ -1,33 +1,65 @@
-import numpy as np
-import os
-import pandas as pd
-from pandasai import Agent
-from pandasai.llm.local_llm import LocalLLM
+import base64
 import streamlit as st
-from key import pd_key # to get Api_key from user
+from streamlit_option_menu import option_menu
 
-#Assinging API Key
-os.environ["PANDASAI_API_KEY"]=pd_key
+def run_file(file_path):
+    with open(file_path, "r") as file:
+        file_content = file.read()
+    exec(file_content, globals())
 
-st.title("Omniverse")
 
+selected = option_menu(
+    menu_title=None,
+    options=["Herschel", "Data Visualization", "AboutUs"],
+    icons=["robot", "bar-chart-line-fill", "people-fill"],
+    default_index=0,
+    orientation= "horizontal",
+    styles={
+                "container": {},
+                "icon": {"color": "white"},
+                "nav-link": {
+                    "margin": "0px",
+                    "--hover-color": "#eee",
+                },
+                "nav-link-selected": {"background-color": "#00004d",},
+            },
+        )
 
-#Taking sample data and create pandas data frame
-data = pd.read_csv('txt.csv')
+@st.cache_data
+def get_img_as_base64(file):
+    with open(file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-#Creating agent
-agent = Agent(data)
+img = get_img_as_base64("backkk.jpg")
 
-#Prompt
-hist=""
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"User has sent the following prompt: {prompt}")
+page_bg_image = f"""
+<style>
+[data-testid="stAppViewContainer"]{{
+background-image: url("data:image/png;base64,{img}");
+background-size: cover;
+}}
 
-    a=agent.chat(prompt)
-    hist=hist+"  "+prompt
+[data-testid="stHeader"]{{
+background: rgba(0,0,0,0);
+}}
 
-    st.header(a)
-else:
-    exit
+[data-testid="stToolbar"] {{
+right: 2rem;
+color:white;
+}}
 
+[id="chatbot"]{{
+    color:white;
+}}
+
+</style>
+"""
+
+st.markdown(page_bg_image, unsafe_allow_html=True)
+if selected == "Herschel":
+    run_file("quiz.py")
+if selected == "Data Visualization":
+    run_file("data.py")
+if selected == "AboutUs":
+    run_file("about.py") 
