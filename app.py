@@ -2,15 +2,11 @@ import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-def run_file(file_path):
-    with open(file_path, "r") as file:
+#function to read python file 
+def run_file(filepath):
+    with open(filepath, 'r', encoding='utf-8') as file:
         file_content = file.read()
     exec(file_content, globals())
-
-def display_html(file_path):
-    with open(file_path, "r", encoding="utf-8") as file:
-        html_content = file.read()
-    st.components.v1.html(html_content, height=100, width=1600, scrolling=True)
 
 selected = option_menu(
     menu_title=None,
@@ -29,6 +25,7 @@ selected = option_menu(
             },
         )
 
+# function to add image
 @st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
@@ -37,6 +34,7 @@ def get_img_as_base64(file):
 
 img = get_img_as_base64("backkk.jpg")
 
+# adding background picture
 page_bg_image = f"""
 <style>
 [data-testid="stAppViewContainer"]{{
@@ -60,10 +58,11 @@ color:white;
 </style>
 """
 
+#Nav Bar
 st.markdown(page_bg_image, unsafe_allow_html=True)
 if selected == "Herschel":
     run_file("quiz.py")
 if selected == "Data Visualization":
     run_file("data.py")
 if selected == "AboutUs":
-    display_html("about.html") 
+    run_file("about.py")
