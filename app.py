@@ -7,6 +7,10 @@ def run_file(file_path):
         file_content = file.read()
     exec(file_content, globals())
 
+def display_html(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        html_content = file.read()
+    st.components.v1.html(html_content, height=100, width=1600, scrolling=True)
 
 selected = option_menu(
     menu_title=None,
@@ -62,4 +66,4 @@ if selected == "Herschel":
 if selected == "Data Visualization":
     run_file("data.py")
 if selected == "AboutUs":
-    run_file("about.py") 
+    display_html("about.html") 
