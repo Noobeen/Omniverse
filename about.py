@@ -1,9 +1,6 @@
 import streamlit as st
 import base64
 
-# Set the page configuration
-st.set_page_config(page_title="About Us", layout="wide")
-
 @st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
@@ -17,15 +14,21 @@ kishor_img = get_img_as_base64("images/kishor.png")
 navodit_img = get_img_as_base64("images/navodit.jpg")
 sudip_img = get_img_as_base64("images/sudip.jpg")
 
-# Background and section setup
 st.markdown(
     """
     <style>
+    /* Expand the content width without changing the nav bar or sidebar */
+    .block-container {
+        padding-left: 0rem;
+        padding-right: 0rem;
+        width: 100%;
+    }
     .about-section {
         padding: 50px;
         text-align: center;
         color: white;
-        background-color: black;
+        background-color: rgba(0,0,0,0);
+        width: 100%;
     }
     .team-member {
         text-align: center;
@@ -33,16 +36,23 @@ st.markdown(
         padding: 20px;
         border-radius: 8px;
         color: white;
-        height: 540px;
+        height: 580px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        width: 100%;
     }
     .team-member img {
         width: 100%;
         border-radius: 8px;
-        height: 200px; /* Fixed image height for uniformity */
-        object-fit: cover; /* Ensure the image fits within the box without distortion */
+        height: 200px;
+        object-fit: cover;
+    }
+    .team-member h3 {
+        font-size: 18px;  /* Reduced font size for the name */
+    }
+    .team-member p {
+        font-size: 14px;  /* Reduced font size for the details */
     }
     .button {
         border: none;
@@ -57,6 +67,12 @@ st.markdown(
     .button:hover {
         background-color: #555;
     }
+
+    [data-testid="stHorizontalBlock"] {
+        width: 100% !important; /* Set width to 100% */
+        margin: 0; /* Reset margin */
+    }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -76,7 +92,7 @@ st.markdown(
 # Welcome message
 st.markdown(
     """
-    <div style="background-color: #000; margin-left: 25%; margin-right: 15px; padding: 20px; width: 50%;">
+    <div style="background-color: rgba(0,0,0,0); padding: 20px;">
         <p style="color:#fff;">Welcome! We’re excited to introduce you to “Herschel,” our friendly chatbot that’s here to answer all your questions about exoplanets and the wonders of the universe. Herschel is your cosmic guide and is ready to share fascinating insights and discoveries with you. 
         But that’s just the start! We also have engaging quizzes that will challenge your knowledge and spark your curiosity about exoplanets. It is a fun way to learn more and see just how much you know about the universe.
         Join us on this exciting journey! Whether you’re a space enthusiast or just starting to explore, there’s so much to discover together. Let’s uncover the mysteries of the universe together!</p>
@@ -159,4 +175,4 @@ for i, member in enumerate(team_members):
             unsafe_allow_html=True
         )
 
-st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<hr style='width: 100%;'>", unsafe_allow_html=True)
