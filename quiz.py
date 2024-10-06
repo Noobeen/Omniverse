@@ -1,3 +1,4 @@
+import api
 
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -89,7 +90,7 @@ conversational_rag_chain = RunnableWithMessageHistory(
 st.title("Omniverse")
 question = st.chat_input("Say something")
 
-Prompt="User wants to know about this {question}."
+Prompt=f"User wants to know about this {question}."
 
 if question:
     st.write(f"User has sent the following prompt: {Prompt}")
