@@ -17,8 +17,9 @@ st.title("Visualization tool")
 question = st.chat_input("Say something")
 if question:
     a=agent.chat(question)
-    if a==
-    st.write(a)
-    st.image(a)
+    if a=="C:/Users/College_stuffs/spaceapp/Omniverse/exports/charts/temp_chart.png" :
+        st.image(a)
+    else:
+        st.write(a)
 else:
     exit    
