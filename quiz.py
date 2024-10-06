@@ -1,5 +1,6 @@
 from api import Track_key,Embd_key
-from langchain.chains import create_history_aware_retriever, create_retrieval_chain
+from langchain.chains import create_retrieval_chain
+from langchain.chains.history_aware_retriever import create_history_aware_retriever
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
 from langchain_community.chat_message_histories import ChatMessageHistory
@@ -12,14 +13,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import ChatOllama
 import streamlit as st
 import os
+from Locallm import llm
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = Track_key
 os.environ["OPENAI_API_KEY"] =Embd_key
 
 
-###Selecting local llm llama###
-llm=ChatOllama(model="llama3.2:3b",temperature=0)
+
 
 
 ### Constructin retriever ###
@@ -30,7 +31,7 @@ loader = CSVLoader(file_path="txt.csv")
 data=loader.load()
 docs=data[0:100].copy()
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
 vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings(model="text-embedding-3-small"))
 
@@ -42,6 +43,7 @@ contextualize_q_system_prompt = """Given a chat history and the latest user ques
 which might reference context in the chat history, formulate a standalone question \
 which can be understood without the chat history. Do NOT answer the question, \
 just reformulate it if needed and otherwise return it as is."""
+
 contextualize_q_prompt = ChatPromptTemplate.from_messages(
     [
         ("system", contextualize_q_system_prompt),
@@ -95,7 +97,7 @@ conversational_rag_chain = RunnableWithMessageHistory(
 st.title("🤖 Herschel")
 question = st.chat_input("Say something")
 
-Prompt=f"User wants to know about this {question}."
+Prompt=question
 
 if question:
     st.write(f"User has sent the following prompt: {Prompt}")
