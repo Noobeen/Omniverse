@@ -1,5 +1,4 @@
-import api
-
+from api import Track_key,Embd_key
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_chroma import Chroma
@@ -12,6 +11,12 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_ollama import ChatOllama
 import streamlit as st
+import os
+
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = Track_key
+os.environ["OPENAI_API_KEY"] =Embd_key
+
 
 ###Selecting local llm llama###
 llm=ChatOllama(model="llama3.2:3b",temperature=0)
