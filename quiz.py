@@ -92,7 +92,7 @@ conversational_rag_chain = RunnableWithMessageHistory(
     )
 
 
-st.title("Omniverse")
+st.title("🤖 Herschel")
 question = st.chat_input("Say something")
 
 Prompt=f"User wants to know about this {question}."
