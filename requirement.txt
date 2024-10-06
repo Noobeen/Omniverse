@@ -10,3 +10,4 @@ langchain-chroma
 langchain-openai
 langchain-ollama
 streamlit_option_menu
+base64
