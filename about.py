@@ -33,11 +33,16 @@ st.markdown(
         padding: 20px;
         border-radius: 8px;
         color: white;
-        
+        height: 540px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .team-member img {
         width: 100%;
         border-radius: 8px;
+        height: 200px; /* Fixed image height for uniformity */
+        object-fit: cover; /* Ensure the image fits within the box without distortion */
     }
     .button {
         border: none;
@@ -100,7 +105,7 @@ team_members = [
         "image": nabin_img,
     },
     {
-        "name": "Prameya Dhaubhadel",
+        "name": "Prameya Dhaubadhel",
         "degree": "B.S. in Computer Science (Class of 2028)",
         "university": "Caldwell University, NJ",
         "email": "pdhaubhadel@caldwell.edu",
