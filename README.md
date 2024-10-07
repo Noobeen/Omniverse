@@ -1,7 +1,7 @@
 # Omniverse
 It's our space app project for 2024
 
-### One should create api.py file including:
+### One should create key.py file including:
 
 import os  
 os.environ["LANGCHAIN_TRACING_V2"]  = "true"  
