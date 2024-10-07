@@ -10,7 +10,7 @@ def run_file(filepath):
 
 selected = option_menu(
     menu_title=None,
-    options=["Herschel", "Data Visualization", "AboutUs"],
+    options=["Herschel", "Play with Data", "AboutUs"],
     icons=["robot", "bar-chart-line-fill", "people-fill"],
     default_index=0,
     orientation= "horizontal",
@@ -61,8 +61,8 @@ color:white;
 #Nav Bar
 st.markdown(page_bg_image, unsafe_allow_html=True)
 if selected == "Herschel":
-    run_file("quiz.py")
-if selected == "Data Visualization":
-    run_file("data.py")
+    run_file("herschel.py")
+if selected == "Play with Data":
+    run_file("play_with_data.py")
 if selected == "AboutUs":
     run_file("about.py")
