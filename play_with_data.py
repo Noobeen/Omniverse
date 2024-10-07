@@ -5,7 +5,7 @@ import os
 import streamlit as st
 from Locallm import llm
  
-df=pd.read_csv('txt.csv')
+df=pd.read_csv('data.csv')
 agent = Agent(
     df,
     description="You are a data analysis agent. Your main goal is to help non-technical users to analyze data",
