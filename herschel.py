@@ -23,7 +23,7 @@ os.environ["OPENAI_API_KEY"] =Embd_key # Api key imported from api.py which user
 
 
 ### Constructing retriever for RAG ###
-loader = CSVLoader(file_path="txt.csv")
+loader = CSVLoader(file_path="data.csv")
 data=loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200) #Spliting data
