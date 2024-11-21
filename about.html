@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        
+        html {
+            box-sizing: border-box;
+        }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .texts {
+            width: 50%;
+            margin-top: 15px;
+            margin-left: 25%;
+            margin-right: 15px;
+            align-items: center;
+            opacity: inherit;
+        }
+
+        .texts.about{
+            color: #fff;
+        }
+
+        
+        .card {
+            background-color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+        
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+        
+        .container {
+            padding: 0 16px;
+            color: white;
+        }
+        
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .title {
+            color: grey;
+        }
+        
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: black;
+            background-color: white;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .button:hover {
+            background-color: #555;
+        }
+        
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body background="images/bg1.jpg">           
+    </div>
+    <div class="about-section">
+        <h1 style="text-align: center; color: #fff; text-transform: uppercase; font-size: 50px;">About <span style="color: #00fecb;">Us</span> </h1>
+        <p style="border-color: tomato;font-family: monospace;">"Solo commitment, embedded movement"</p>
+    </div>
+    <div class="texts" style="background-color: #000;">
+        <p style="color:#fff; align-items: center;margin-left: 20px; margin-top: 20px; margin-right: 20px; margin-bottom: 20px;"> <h7> Welcome! We’re excited to introduce you to “Herschel,” our friendly chatbot that’s here to answer all your questions about exoplanets and the wonders of the universe. Herschel is your cosmic guide and is ready to share fascinating insights and discoveries with you.
+            But that’s just the start! We also have engaging quizzes that will challenge your knowledge and spark your curiosity about exoplanets. It is a fun way to learn more and see just how much you know about the universe.
+            And don’t miss our exploration of how artificial intelligence meets data visualization. We’re turning complex information into easy-to-understand visuals that can reveal surprising insights about exoplanets and their unique characteristics.
+            Join us on this exciting journey! Whether you’re a space enthusiast or just starting to explore, there’s so much to discover together. Let’s uncover the mysteries of the universe together!
+        </h7> </p> 
+    </div>
+    <h2 style="text-align:center;color:white;font-size: 30px;">Our Team</h2>
+    <hr>
+    <div class="row">
+        <div class="column" style="width:20%">
+            <div class="card">
+                <img src="images/nabin.jpg" alt="Nabin Oli" style="width:100%">
+                <div class="container">
+                    <h3>Nabin Oli</h3>
+                    <p class="title">B.S. in Computer Science and Mathematics(Class of 2028)</p>
+                    <p>Caldwell University<br>Caldwell, NJ</p>
+                    <p>oli.nabin1729@gmail.com</p>
+                    <p><button class="button" width="100%"><a target='_'href="https://www.linkedin.com/in/nabin-oli-4b7132276/">Contact</a></button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:20%">
+            <div class="card">
+                <img src="images/prameya.jpg" alt="Prameya Dhaubadhel" style="width:100%">
+                <div class="container">
+                    <h3>Prameya Dhaubadhel</h3>
+                    <p class="title">B.S. in Computer Science (Class of 2028)</p>
+                    <p>Caldwell University<br>Caldwell, NJ</p>
+                    <p>pdhaubhadel@caldwell.edu</p>
+                    <p><button class="button" width="100%"><a target='_'href="https://www.linkedin.com/in/prameya-dhaubhadel/">Contact</a></button></p>
+            </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:20%">
+            <div class="card">
+                <img src="images/kishor.png" alt="Kishor Baniya" style="width:100%">
+                <div class="container">
+                    <h3>Kishor Baniya</h3>
+                    <p class="title">B.S. in Computer Science and Mathematics (Class of 2028)</p>
+                    <p>Caldwell University<br>Caldwell, NJ</p>
+                    <p>kishorbaniya15@gmail.com</p>
+                    <p><button class="button" width="100%"><a target='_'href="https://www.linkedin.com/in/kishor-baniya-7164bb213/">Contact</a></button></p>
+            </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:20%">
+            <div class="card">
+                <img src="images/navodit.jpg" alt="Navodit Kuikel" style="width: 100%;">
+                <div class="container">
+                    <h3>Navodit Kuikel</h3>
+                    <p class="title">B.S. in Computer Science (Class of 2028)</p>
+                    <p>Caldwell University<br>Caldwell, NJ</p>
+                    <p>nkuikel@caldwell.edu</p>
+                    <p><button class="button" width="100%"><a target='_'href="https://www.linkedin.com/in/navodit-kuikel-9bbb14291/">Contact</a></button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column" style="width:20%">
+            <div class="card">
+                <img src="images/sudip.jpg" alt="Sudip Kumar Thakur" style="width:100%">
+                <div class="container">
+                    <h3>Sudip Kumar Thakur</h3>
+                    <p class="title">B.S. in Computer Science (Class of 2028)</p>
+                    <p>Caldwell University<br>Caldwell, NJ</p>
+                    <p>sthakur3@caldwell.edu</p>
+                    <p><button class="button" width="100%"><a target='_'href="https://www.linkedin.com/in/sudip-kumar-thakur-460599331/">Contact</a></button></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</body>
+
+</html>
